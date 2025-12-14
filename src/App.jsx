@@ -1,9 +1,15 @@
 import React from 'react'
+import Navbar from './components/Navbar'
 
 const App = () => {
   return (
-    <div className='text-3xl font-bold underline flex-center h-[100vh]'>App</div>
+
+    <main>
+      <Navbar />
+
+    </main>
   )
+
 }
 
 export default App
