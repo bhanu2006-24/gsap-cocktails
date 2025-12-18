@@ -5,37 +5,35 @@ import { SplitText } from "gsap/all"
 
 const About = () => {
     useGSAP(() => {
-        document.fonts.ready.then(() => {
-            const titleSplit = SplitText.create('#about h2', {
-                type: 'words'
+        const titleSplit = SplitText.create('#about h2', {
+            type: 'words'
+        })
+
+        const scrollTimeline = gsap.timeline({
+            scrollTrigger: {
+                trigger: '#about',
+                start: 'top center',
+                // end:'top 20%',
+                // markers:true,
+                // scrub:1
+            }
+        })
+
+
+        scrollTimeline
+            .from(titleSplit.words, {
+                yPercent: 100,
+                opacity: 0,
+                duration: 1,
+                stagger: 0.02,
+                ease: 'expo.out'
             })
-
-            const scrollTimeline = gsap.timeline({
-                scrollTrigger: {
-                    trigger: '#about',
-                    start: 'top center',
-                    // end:'top 20%',
-                    // markers:true,
-                    // scrub:1
-                }
-            })
-
-
-            scrollTimeline
-                .from(titleSplit.words, {
-                    yPercent: 100,
-                    opacity: 0,
-                    duration: 1,
-                    stagger: 0.02,
-                    ease: 'expo.out'
-                })
-                .from('.top-grid div , .bottom-grid div', {
-                    opacity: 0,
-                    duration: 1,
-                    stagger: 0.04,
-                    ease: 'power1.inOut'
-                }, '-=0.5')
-        });
+            .from('.top-grid div , .bottom-grid div', {
+                opacity: 0,
+                duration: 1,
+                stagger: 0.04,
+                ease: 'power1.inOut'
+            }, '-=0.5')
     })
 
 
