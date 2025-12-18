@@ -77,8 +77,8 @@ const Hero = () => {
             <section id="hero" className='noisy'>
                 <h1 className="title">MOJITO</h1>
 
-                <img src="images/hero-left-leaf.png" alt="left-leaf" className='left-leaf' />
-                <img src="images/hero-right-leaf.png" alt="right-leaf" className='right-leaf' />
+                <img src="/gsap-cocktails/images/hero-left-leaf.png" alt="left-leaf" className='left-leaf' />
+                <img src="/gsap-cocktails/images/hero-right-leaf.png" alt="right-leaf" className='right-leaf' />
 
                 <div className="body">
                     <div className="content">
@@ -104,7 +104,7 @@ const Hero = () => {
             </section>
 
             <div className="absolute video inset-0">
-                <video ref={videoRef} src="videos/output.mp4" muted playsInline preload="auto" ></video>
+                <video ref={videoRef} src="/gsap-cocktails/videos/output.mp4" muted playsInline preload="auto" ></video>
             </div>
 
         </>
