@@ -7,22 +7,32 @@ const Art = () => {
     const isMobile = useMediaQuery({ maxWidth: 768 });
 
     useGSAP(() => {
-        const start = isMobile ? "top 20%" : "top top";
+        document.fonts.ready.then(() => {
+            const start = isMobile ? "top 20%" : "top top";
 
-        const maskTimeline = gsap.timeline({
-            scrollTrigger: {
-                trigger: "#art",
-                start,
-                end: "bottom center",
-                scrub: 1.5,
-                pin: true
-            },
-        })
+            const maskTimeline = gsap.timeline({
+                scrollTrigger: {
+                    trigger: "#art",
+                    start,
+                    end: "bottom center",
+                    scrub: 1.5,
+                    pin: true
+                },
+            })
 
-        maskTimeline
-            .to('.will-fade', { opacity: 0, stagger: 0.2, ease: 'power1.inOut' })
-            .to('.masked-img', { scale: 1.3, maskPosition: 'center', maskSize: '400%', duration: 1, ease: 'power1.inOut' })
-            .to('#masked-content', { opacity: 1, ease: 'power1.inOut' })
+            maskTimeline
+                .to('.will-fade', { opacity: 0, stagger: 0.2, ease: 'power1.inOut' })
+                .to('.masked-img', {
+                    scale: 1.3,
+                    maskPosition: 'center',
+                    maskSize: '400%',
+                    webkitMaskPosition: 'center',
+                    webkitMaskSize: '400%',
+                    duration: 1,
+                    ease: 'power1.inOut'
+                }, "<")
+                .to('#masked-content, .reveal-text', { opacity: 1, ease: 'power1.inOut' })
+        });
     }, []);
 
 
@@ -60,7 +70,7 @@ const Art = () => {
                 </div>
 
                 <div className="masked-container">
-                    <h2 className='will-fade'>
+                    <h2 className='reveal-text opacity-0'>
                         Sip-Worthy Perfection
                     </h2>
 
